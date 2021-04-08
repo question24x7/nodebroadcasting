@@ -20,7 +20,10 @@ app.post("/consumer", async ({ body }, res) => {
     const desc = new webrtc.RTCSessionDescription(body.sdp);
     await peer.setRemoteDescription(desc);
     senderStream.getTracks().forEach(track => peer.addTrack(track, senderStream));
-    const answer = await peer.createAnswer();
+    const answer = await peer.createAnswer({
+        offerToReceiveAudio: true,
+        offerToReceiveVideo: true
+      });
     await peer.setLocalDescription(answer);
     const payload = {
         sdp: peer.localDescription
@@ -40,7 +43,10 @@ app.post('/broadcast', async ({ body }, res) => {
     peer.ontrack = (e) => handleTrackEvent(e, peer);
     const desc = new webrtc.RTCSessionDescription(body.sdp);
     await peer.setRemoteDescription(desc);
-    const answer = await peer.createAnswer();
+    const answer = await peer.createAnswer({
+        offerToReceiveAudio: true,
+        offerToReceiveVideo: true
+      });
     await peer.setLocalDescription(answer);
     const payload = {
         sdp: peer.localDescription
