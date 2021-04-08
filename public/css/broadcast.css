@@ -1,0 +1,23 @@
+.container{
+    position: relative;
+    height: 100%;
+}
+#board {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 34;
+    display: none;
+}
+
+#teacher {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 250px;
+    z-index: 35;
+    display: none;
+    margin-top: 650px;
+}
