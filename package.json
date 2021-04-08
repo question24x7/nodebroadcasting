@@ -13,9 +13,9 @@
   "author": "Tarun Kumar",
   "license": "ISC",
   "dependencies": {
-    "node-pre-gyp": "0.6.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "node-pre-gyp": "0.6.0",
     "wrtc": "^0.4.7"
   }
 }
